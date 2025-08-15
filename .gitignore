@@ -5,3 +5,6 @@ __pycache__/
 *.pyc
 # Ignore environment files
 .env
+
+.vscode/
+.DS_Store
