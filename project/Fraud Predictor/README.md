@@ -48,7 +48,7 @@ Goal → Stage → Deliverable
 - <Goal N> → Deployment & Monitoring (Stage 14) → <Deliverable K>
 - <Goal O> → Orchestration & System Design (Stage 15) → <Deliverable L>
 
-stages with no goals or deliverables will be updated as soon as new homeworks are released
+Stages with no goals or deliverables will be updated as soon as new homeworks are released
 
 ## Repo Plan
 
