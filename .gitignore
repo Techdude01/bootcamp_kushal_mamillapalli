@@ -6,5 +6,6 @@ __pycache__/
 # Ignore environment files
 .env
 **/data/
+data/
 .vscode/
 .DS_Store
