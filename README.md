@@ -6,6 +6,7 @@
 - **project/** → All project contributions will be submitted here.
 - **class_materials/** → Local storage for class materials. Never pushed to
   GitHub.
+- **data/ and subfolders raw/ plots/ processed/** → Local storage for data. Never pushed to github due to sizing, and security
 
 ## Homework Folder Rules
 
