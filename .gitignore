@@ -8,3 +8,12 @@ __pycache__/
 
 .vscode/
 .DS_Store
+
+#ignore Zed Jupyter Notebook scripts/py
+convert_notebooks_to_percent.sh
+sync_jupytext_pairs.sh
+nbpair
+nbsync
+api_scrape_data.py
+data_storage.py
+python_fundamentals_summary.py
