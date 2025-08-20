@@ -35,9 +35,9 @@ Goal → Stage → Deliverable
 - Start Project + Research into problem → Problem Framing & Scoping (Stage 01) → Homework 1
 - Setup → Tooling Setup (Stage 02) → Homework 2
 - Prepare for ML coding → Python Fundamentals (Stage 03) → Homework 3
-- <Goal D> → Data Acquisition/Ingestion (Stage 04) → <Deliverable A>
-- <Goal E> → Data Storage (Stage 05) → <Deliverable B>
-- <Goal F> → Data Preprocessing (Stage 06) → <Deliverable C>
+- Find Data Source → Data Acquisition/Ingestion (Stage 04) → Good dataset found
+- Store Dataset → Data Storage (Stage 05) → Place Dataset in data/raw
+- Improve Dataset → Data Preprocessing (Stage 06) → Process the dataset and add it to data/processed
 - <Goal G> → Outlier Analysis (Stage 07) → <Deliverable D>
 - <Goal H> → Exploratory Data Analysis (Stage 08) → <Deliverable E>
 - <Goal I> → Feature Engineering (Stage 09) → <Deliverable F>
