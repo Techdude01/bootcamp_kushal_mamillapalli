@@ -121,7 +121,8 @@ networkx==3.4.2
 notebook==7.4.5
 notebook_shim==0.2.4
 numpy==2.2.5
--e git+https://github.com/righetti/ROB2004.git@49da0500eb97cce677ce45ebd019742a8010b300#egg=NYUFinger
+# Editable install with no version control (NYUFinger==1.0.0)
+-e /Users/Kushal/Projects/ROB2004
 opencv-python==4.10.0.84
 overrides==7.7.0
 packaging==25.0
