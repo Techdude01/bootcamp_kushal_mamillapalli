@@ -19,3 +19,8 @@ data_storage.py
 python_fundamentals_summary.py
 stage05_data-storage_homework-starter.py
 stage06_data-preprocessing_homework-starter.py
+
+fraud_kaggle_creditcard_source-kaggle_dataset-creditcardfraud_20250820-192958.csv
+util_20250820-213510.parquet
+util_20250820-213510.csv
+fraud_kaggle_creditcard_source-kaggle_dataset-creditcardfraud_20250820-213245.parquet
