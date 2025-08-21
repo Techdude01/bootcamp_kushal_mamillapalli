@@ -28,6 +28,44 @@ The Model would be predictive because it is predicting whether a transaction is 
 - I am not sure which model is going to be the best, neural nets could end up being worse than forests due to the dataset - will use most optial strategy to counteract assumptions of performance
 - Data Cleaning and Preparation becomes very complicated while model is underperforming - will use multiple datasets to make sure I don't have to spend a lot of time on this part.
 
+## Data Rules/Storage
+
+- Homework will have its own data folders for easier separation and less clutter around the project data
+- raw/ stores raw unprocessed data from donwload/api/scrape
+- processed/ stores cleaned and processed data (CSV,Parquet)
+- plots/ stores visualizations of data for analysis and cleaning
+
+### Data Folder content
+
+- \*.csv -> Raw or Processed data based on original exported data
+- \*.parquet -> optimized data converted form csv, smaller size, better columnar access
+- \*.png -> data visualizations for EDA, or general analysis
+
+### File Usage
+
+- **CSV**: Primary format for fraud data inspection and debugging (human-readable)
+- **Parquet**: Efficient storage for large fraud datasets (compressed, fast querying for 284K+ transactions) - binary nonreadable
+- **Validation**: Both formats include fraud-specific validation (Amount; V1-V28 features will be added later)
+
+## Data Preprocessing/Cleaning Strategy
+
+- **Dataset:** 284,807 credit card transactions with 31 features (V1-V28, Time, Amount, Class)
+- **Target:** Binary fraud classification (0=legitimate, 1=fraudulent)
+- **Preprocessing Steps:** Missing value handling, data quality filtering, feature normalization
+- **Dataset Analysis:** Dataset looks good, no rows dropped with high cleaning constraints, normalization for transactions
+
+### Functions
+
+- **fill_missing_median()**: Fills numeric missing values with column medians - reduce NaNs in column
+- **drop_missing()**: Removes rows with missing values based on threshold or specific columns - if too many missing values remove it
+- **normalize_data()**: Scales numeric data using MinMax or Standard scaling - scale the data for better visualization/training
+
+## Assumptions
+
+- Normalization improves model performance
+- Median usage improves the dataset
+- Threshold based dropping is more clear, as high NaN's in a row leads to bad data
+
 ## Lifecycle Mapping
 
 Goal → Stage → Deliverable
@@ -36,7 +74,7 @@ Goal → Stage → Deliverable
 - Setup → Tooling Setup (Stage 02) → Homework 2
 - Prepare for ML coding → Python Fundamentals (Stage 03) → Homework 3
 - Find Data Source → Data Acquisition/Ingestion (Stage 04) → Good dataset found
-- Store Dataset → Data Storage (Stage 05) → Place Dataset in data/raw
+- Store Dataset → Data Storage (Stage 05) → Place Dataset in data/raw or data/processed (parquet)
 - Improve Dataset → Data Preprocessing (Stage 06) → Process the dataset and add it to data/processed
 - <Goal G> → Outlier Analysis (Stage 07) → <Deliverable D>
 - <Goal H> → Exploratory Data Analysis (Stage 08) → <Deliverable E>
