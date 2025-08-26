@@ -76,10 +76,10 @@ Goal → Stage → Deliverable
 - Find Data Source → Data Acquisition/Ingestion (Stage 04) → Good dataset found
 - Store Dataset → Data Storage (Stage 05) → Place Dataset in data/raw or data/processed (parquet)
 - Improve Dataset → Data Preprocessing (Stage 06) → Process the dataset and add it to data/processed
-- <Goal G> → Outlier Analysis (Stage 07) → <Deliverable D>
-- <Goal H> → Exploratory Data Analysis (Stage 08) → <Deliverable E>
-- <Goal I> → Feature Engineering (Stage 09) → <Deliverable F>
-- <Goal J> → Modeling (Regression / Time Series / Classification) (Stage 10) → <Deliverable G>
+- Analyze Outliers → Outlier Analysis (Stage 07) → Test Winsorization and other data outliers>
+- Analyze Data and Relations → Exploratory Data Analysis (Stage 08) → Notebook with Plots and Charts with EDA
+- Create Features → Feature Engineering (Stage 09) → Notebook with example features
+- Model with different models → Modeling (Regression / Time Series / Classification) (Stage 10) → time-series and linear-regression notebook
 - <Goal K> → Evaluation & Risk Communication (Stage 11) → <Deliverable H>
 - <Goal L> → Results Reporting, Delivery Design & Stakeholder Communication (Stage 12) → <Deliverable I>
 - <Goal M> → Productization (Stage 13) → <Deliverable J>
