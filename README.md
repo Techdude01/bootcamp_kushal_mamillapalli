@@ -6,7 +6,7 @@
 - **project/** → All project contributions will be submitted here.
 - **class_materials/** → Local storage for class materials. Never pushed to
   GitHub.
-- **data/** → Local storage for data. Most Data pushed to github, except large data sources
+- **data/** → Local storage for data. Most sample Data pushed to github, except large data sources (just for homeworks, not project)
 
 ## Homework Folder Rules
 
