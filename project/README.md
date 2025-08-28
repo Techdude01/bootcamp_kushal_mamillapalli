@@ -82,7 +82,7 @@ Goal → Stage → Deliverable
 - Model with different models → Modeling (Regression / Time Series / Classification) (Stage 10) → time-series and linear-regression notebook
 - Evaluate Results and Risk → Evaluation & Risk Communication (Stage 11) → evaluation risk communication notebook
 - Report Results → Results Reporting, Delivery Design & Stakeholder Communication (Stage 12) → Stakeholder_report_12.md
-- <Goal M> → Productization (Stage 13) → <Deliverable J>
+- Ensure notebook is Runnable and show Demo→ Productization (Stage 13) → Demo notebook and add Flask API with util functions.
 - <Goal N> → Deployment & Monitoring (Stage 14) → <Deliverable K>
 - <Goal O> → Orchestration & System Design (Stage 15) → <Deliverable L>
 
