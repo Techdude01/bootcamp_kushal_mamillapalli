@@ -94,3 +94,58 @@ Stages with no goals or deliverables will be updated as soon as new homeworks ar
 - /src will have useful functions and dir mapping
 - /notebooks will have the notebooks to run the code
 - /docs will have the documents to explain the code
+- /model stores pickled model artifacts (model.pkl)
+- /reports stores stakeholder-ready summaries, charts, PDFs
+
+### Quickstart (Fresh Clone)
+
+```bash
+git clone <repo>
+cd project
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+# Option 1: Use environment.yml (Recommended)
+conda env create -f environment.yml
+conda activate fraud-detection
+
+# Option 2: Use requirements.txt ( may require more packages to be installed )
+pip install -r requirements.txt
+
+python app.py  # starts Flask on :8000
+# In another terminal:
+curl -s http://localhost:8000/health
+curl -s -X POST http://localhost:8000/run_full_analysis | jq  # trains+saves model
+curl -s -X POST http://localhost:8000/predict \
+  -H 'Content-Type: application/json' \
+  -d '{"rows":[{"Time":0,"V1":0,"V2":0,"V3":0,"V4":0,"V5":0,"V6":0,"V7":0,"V8":0,"V9":0,"V10":0,"V11":0,"V12":0,"V13":0,"V14":0,"V15":0,"V16":0,"V17":0,"V18":0,"V19":0,"V20":0,"V21":0,"V22":0,"V23":0,"V24":0,"V25":0,"V26":0,"V27":0,"V28":0,"Amount":123.45}]}'
+```
+
+### Endpoints Summary
+
+- `GET /health` — service status
+- `POST /predict` — JSON body with either `rows` (list of dicts) or `features` (list of lists)
+- `GET /predict/<amount>` — convenience path param (other features zeroed)
+- `GET /predict/<amount>/<time>` — set Amount and Time via path params
+- `GET /plot` — simple inline PNG (homework parity)
+- `POST /run_full_analysis` — trains model on processed data and saves artifact
+
+### Error Handling
+
+- Missing/invalid features → `400 {"error": "..."}`
+- Missing model artifact → run `POST /run_full_analysis` first to create `model.pkl`.
+
+### Artifacts & Deliverables
+
+- Model artifacts: `project/model/model.pkl`
+- Stakeholder report: `project/deliverables/Stakeholder_Report_12.md`
+- Figures referenced by report: `project/data/images/`
+- Reports directory (for future PDFs/exports): `project/reports/`
+
+### Stakeholder Handoff Summary
+
+- Overview: Binary fraud detection with logistic regression baseline.
+- Key findings: High data quality; baseline (100% data) outperforms winsorization/IQR; PR AUC/F1 strongest without aggressive filtering.
+- Assumptions: Stable schema, gradual fraud evolution, comparable train/production distributions.
+- Risks: Data/concept drift; threshold misconfiguration causing alert fatigue.
+- Instructions: Regenerate figures by re-running notebooks; API supports prediction and end-to-end training.
+- Next steps: Monitoring dashboards, threshold reviews, periodic retraining cadence.
