@@ -41,9 +41,14 @@ It will help you connect each stage of the **Applied Financial Engineering Lifec
 ## Reflection Prompts
 
 - Which stage was the most **difficult** for you, and why?
+- The most difficult stage was 13 since putting the entire pipeline into one file was very tough, and I had to leverage the structure and create function to properly do it.
 - Which stage was the most **rewarding**?
+- The most rewarding stage was the modeling since I could see how well my model actually could classify the data, and get actual numerical results back instead of theoreticals
 - How do the stages **connect** — where did one stage’s decisions constrain or enable later stages?
+- Stage7-9 directly affect stage 10 because the model greatly differs after the changes to the data
 - If you repeated this project, what would you **do differently across the lifecycle**?
+- I would plan for the entire lifecycle sooner, because there are some things that would be better done incrementally or in tandem with other stages
 - Which skills do you most want to **strengthen** before your next financial engineering project?
+- I would like to strengthen the non technical skills because I will definitely improve my technical skills while learning but the non technical skills are super important to relay information clearly to stakeholders
 
 ---
