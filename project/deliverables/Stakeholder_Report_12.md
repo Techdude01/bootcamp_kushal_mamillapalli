@@ -22,7 +22,7 @@ Date: 2025-08-28
 - Model: Logistic Regression (scaled), stratified train/test split, fixed random seed.
 - Scenarios (sensitivity on `Amount` only):
   - Baseline (100% data)
-  - Winsorized (clip 2–98%)
+  - Winsorized (clip 5–95%)
   - IQR-filtered (k = 1.5)
 - Metrics: PR AUC (primary), F1, Precision, Recall; diagnostics via confusion matrix, residuals, and CIs.
 

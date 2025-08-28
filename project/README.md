@@ -80,8 +80,8 @@ Goal → Stage → Deliverable
 - Analyze Data and Relations → Exploratory Data Analysis (Stage 08) → Notebook with Plots and Charts with EDA
 - Create Features → Feature Engineering (Stage 09) → Notebook with example features
 - Model with different models → Modeling (Regression / Time Series / Classification) (Stage 10) → time-series and linear-regression notebook
-- <Goal K> → Evaluation & Risk Communication (Stage 11) → <Deliverable H>
-- <Goal L> → Results Reporting, Delivery Design & Stakeholder Communication (Stage 12) → <Deliverable I>
+- Evaluate Results and Risk → Evaluation & Risk Communication (Stage 11) → evaluation risk communication notebook
+- Report Results → Results Reporting, Delivery Design & Stakeholder Communication (Stage 12) → Stakeholder_report_12.md
 - <Goal M> → Productization (Stage 13) → <Deliverable J>
 - <Goal N> → Deployment & Monitoring (Stage 14) → <Deliverable K>
 - <Goal O> → Orchestration & System Design (Stage 15) → <Deliverable L>
