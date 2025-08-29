@@ -30,32 +30,32 @@ Date: 2025-08-28
 
 - Scenario Performance (Sensitivity)
 
-  - F1 by Scenario: ![F1 by Scenario](../data/images/f1_by_scenario.png)  
-    Baseline produces the strongest F1; filtering reduces performance.
-  - PR AUC by Scenario: ![PR AUC by Scenario](../data/images/pr_auc_by_scenario.png)  
-    Baseline maximizes PR AUC; winsorization/IQR offer no clear gain.
-  - Scenario Fits (side-by-side): ![Scenario Fits](../data/images/Scenario_Fits.png)  
+  - F1 by Scenario: ![F1 by Scenario](../data/images/f1_by_scenario.png)
+  Filtering slightly improves performance
+  - PR AUC by Scenario: ![PR AUC by Scenario](../data/images/pr_auc_by_scenario.png)
+    Winsorization/IQR offer little performance boost, but risks in removing rare fraud patterns.
+  - Scenario Fits (side-by-side): ![Scenario Fits](../data/images/Scenario_Fits.png)
     Visual comparison supports keeping 100% data for best separation.
 
 - Data Characteristics (Context)
 
-  - Class Balance: ![Class Balance](../data/images/class_balance.png)  
+  - Class Balance: ![Class Balance](../data/images/class_balance.png)
     Fraud is a tiny minority; evaluation must prioritize precision–recall trade-offs.
-  - Amount Distribution (overall): ![Amount Distribution](../data/images/amount_distribution.png)  
+  - Amount Distribution (overall): ![Amount Distribution](../data/images/amount_distribution.png)
     Transactions span wide ranges; fraud occurs at small and large amounts.
-  - Amount Histogram (zoomed perspective): ![Amount Histogram](../data/images/amount_histogram.png)  
+  - Amount Histogram (zoomed perspective): ![Amount Histogram](../data/images/amount_histogram.png)
     Heavy right tail; informs robust scaling and threshold setting.
-  - Amount Boxplot: ![Amount Boxplot](../data/images/amount_boxplot.png)  
+  - Amount Boxplot: ![Amount Boxplot](../data/images/amount_boxplot.png)
     Many statistical “outliers” are expected, not necessarily errors—avoid over-filtering.
-  - Correlation Heatmap: ![Correlation Heatmap](../data/images/correlation_heatmap.png)  
+  - Correlation Heatmap: ![Correlation Heatmap](../data/images/correlation_heatmap.png)
     Individual anonymized features have weak linear relationships; signal is multivariate.
 
 - Model Diagnostics (Risk & Uncertainty)
-  - Confusion Matrix: ![Confusion Matrix](../data/images/confusion_matrix.png)  
+  - Confusion Matrix: ![Confusion Matrix](../data/images/confusion_matrix.png)
     Imbalance drives errors; threshold tuning is critical to control false positives.
-  - Parametric vs Bootstrap CIs: ![Parametric vs Bootstrap CI](../data/images/Parametric_vs_Bootstrap_CI.png)  
+  - Parametric vs Bootstrap CIs: ![Parametric vs Bootstrap CI](../data/images/Parametric_vs_Bootstrap_CI.png)
     Confidence intervals are consistent across methods → results are robust to CI approach.
-  - Residuals by Segment: ![Residuals by Segment](../data/images/Residuals_by_Segment.png)  
+  - Residuals by Segment: ![Residuals by Segment](../data/images/Residuals_by_Segment.png)
     Segment-level residuals show no pathological pattern; monitor for drift over time.
 
 ### Assumptions & Risks
