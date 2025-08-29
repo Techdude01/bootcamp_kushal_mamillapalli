@@ -1,12 +1,10 @@
 """
 Model training, persistence, loading, and prediction utilities for the fraud project.
-
 Functions here are designed for productization (Stage 13):
 - train_model: fit a baseline classifier
 - evaluate_model: compute PR AUC, F1, precision, recall
 - save_model / load_model: persist model artifacts
 - predict_proba / predict_label: inference helpers with validation and errors
-
 Artifacts and data paths are resolved relative to the project root.
 """
 
@@ -30,22 +28,26 @@ from sklearn.preprocessing import StandardScaler
 # ---------- Paths ----------
 
 def get_project_root() -> Path:
+    # Get the project root
     return Path(__file__).resolve().parents[1]
 
 
-def get_model_dir() -> Path:
+def get_model_dir() -> Path:    
+    # Get the model directory
     d = get_project_root() / "model"
     d.mkdir(parents=True, exist_ok=True)
     return d
 
 
 def get_reports_dir() -> Path:
+    # Get the reports directory
     d = get_project_root() / "reports"
     d.mkdir(parents=True, exist_ok=True)
     return d
 
 
 def get_default_model_path() -> Path:
+    # Get the default model path
     return get_model_dir() / "model.pkl"
 
 
@@ -104,6 +106,7 @@ class TrainResult:
 
 
 def train_model(df: pd.DataFrame, random_state: int = 42) -> TrainResult:
+    # Use similar split as in the notebook
     X = df[FEATURE_COLUMNS]
     y = df["Class"].astype(int)
     X_tr, X_te, y_tr, y_te = train_test_split(
@@ -134,6 +137,7 @@ def save_model(model: Pipeline, path: Optional[Path] = None) -> Path:
 
 
 def load_model(path: Optional[Path] = None) -> Tuple[Pipeline, List[str]]:
+    # Load the model and feature columns from the path
     if path is None:
         path = get_default_model_path()
     if not path.exists():
@@ -145,6 +149,7 @@ def load_model(path: Optional[Path] = None) -> Tuple[Pipeline, List[str]]:
 # ---------- Prediction ----------
 
 def _validate_row(row: Dict[str, float], feature_columns: List[str]) -> np.ndarray:
+    # Validate the row
     missing = [c for c in feature_columns if c not in row]
     if missing:
         raise ValueError(f"Missing required features: {missing}")
@@ -156,12 +161,14 @@ def _validate_row(row: Dict[str, float], feature_columns: List[str]) -> np.ndarr
 
 
 def predict_proba(model: Pipeline, rows: List[Dict[str, float]], feature_columns: List[str]) -> List[float]:
+    # Validate the rows and predict the probabilities
     X = np.vstack([_validate_row(r, feature_columns) for r in rows])
     probs = model.predict_proba(X)[:, 1]
     return [float(p) for p in probs]
 
 
 def predict_label(model: Pipeline, rows: List[Dict[str, float]], feature_columns: List[str], threshold: float = 0.5) -> List[int]:
+    # Predict the labels
     probs = predict_proba(model, rows, feature_columns)
     return [int(p >= threshold) for p in probs]
 
@@ -169,6 +176,7 @@ def predict_label(model: Pipeline, rows: List[Dict[str, float]], feature_columns
 # ---------- One-shot helpers ----------
 
 def train_and_save(default_data: Optional[Path] = None) -> Dict[str, str]:
+    # Train the model and save the model
     df = load_dataset(default_data)
     res = train_model(df)
     model_path = save_model(res.pipeline)

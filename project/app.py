@@ -24,7 +24,7 @@ def health() -> Any:
     return {"status": "ok"}
 
 def _features_list_to_row(features: List[float]) -> Dict[str, float]:
-    """Allow the homework-style payload: {"features": [...]}.
+    """Allow the payload: {"features": [...]}.
 
     If the list is shorter than required, pad zeros; if longer, truncate.
     Order is assumed to be: Time, V1..V28, Amount.
@@ -84,7 +84,7 @@ def predict_two(amount: float, time: float) -> Any:
 
 @app.get("/plot")
 def plot() -> Any:
-    """Return a tiny demo chart as inline PNG (homework parity)."""
+    """Return a tiny demo chart as inline PNG."""
     try:
         fig, ax = plt.subplots(figsize=(3, 2))
         ax.plot([0, 0.5, 1.0], [0, 0.6, 1.0], marker="o")
